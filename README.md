@@ -33,28 +33,6 @@ This project is a Flask-based data analysis dashboard built to explore, visualiz
 - Logo header
 - Consistent and readable layout
 
-## Project Structure
-
-project/
-│── app.py
-│── immigration.csv
-│── requirements.txt
-│── install.txt
-│── README.md
-│
-│── static/
-│     ├── style.css
-│     └── table.js
-│
-└── templates/
-      ├── base.html
-      ├── index.html
-      ├── add.html
-      ├── edit.html
-      ├── filter.html
-      ├── charts.html
-      └── dashboard.html
-
 ## Installation Instructions
 
 1. Download or clone the project repository.
