@@ -1,0 +1,36 @@
+US Immigration Dashboard – Installation Guide
+
+1. Download or clone the project:
+   - Git: git clone https://github.com/PreM04-Buzz/flask_DataAnalysis.git
+     cd flask_DataAnalysis
+   - Or download ZIP → extract → open folder.
+
+2. Create a virtual environment:
+   macOS: python3 -m venv venv
+          source venv/bin/activate
+   Windows: python -m venv venv
+            venv\Scripts\activate
+
+3. Install required packages:
+   pip install -r requirements.txt
+
+4. Add the dataset file:
+   Place your CSV inside the project folder:
+   immigration.csv
+
+5. Run the Flask application:
+   macOS: python3 app.py
+   Windows: python app.py
+
+6. Open the dashboard in your browser:
+   http://127.0.0.1:5000/
+
+7. Stop the server when finished:
+   Press CTRL + C in Terminal or PowerShell.
+
+8. Deactivate the virtual environment:
+   macOS: deactivate
+   Windows: venv\Scripts\deactivate
+
+Your installation is complete and the dashboard is ready to use.
+
