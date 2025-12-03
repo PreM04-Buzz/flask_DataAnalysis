@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<h2 style="color:#0D47A1;">Immigration Multi-Graph Dashboard</h2>
+
+<div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+
+    <canvas id="chart1" width="500" height="300" style="background:white;border-radius:10px;"></canvas>
+    <canvas id="chart2" width="500" height="300" style="background:white;border-radius:10px;"></canvas>
+    <canvas id="chart3" width="500" height="300" style="background:white;border-radius:10px;"></canvas>
+    <canvas id="chart4" width="500" height="300" style="background:white;border-radius:10px;"></canvas>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const years = {{ years|tojson }};
+const immigrants = {{ immigrants|tojson }};
+const refugees = {{ refugees|tojson }};
+const apprehensions = {{ apprehensions|tojson }};
+const removals = {{ removals|tojson }};
+const returns_data = {{ returns|tojson }};
+
+new Chart(document.getElementById("chart1"), {
+    type: 'line',
+    data: {
+        labels: years,
+        datasets: [
+            { label: "Immigrants", data: immigrants, borderColor: "#0D47A1" },
+            { label: "Refugees", data: refugees, borderColor: "#43A047" }
+        ]
+    }
+});
+
+new Chart(document.getElementById("chart2"), {
+    type: 'bar',
+    data: {
+        labels: years,
+        datasets: [
+            { label: "Removals", data: removals, backgroundColor: "#D32F2F" },
+            { label: "Returns", data: returns_data, backgroundColor: "#1565C0" }
+        ]
+    }
+});
+
+new Chart(document.getElementById("chart3"), {
+    type: 'line',
+    data: {
+        labels: years,
+        datasets: [
+            { label: "Apprehensions", data: apprehensions, borderColor: "#6A1B9A" }
+        ]
+    }
+});
+
+new Chart(document.getElementById("chart4"), {
+    type: 'bar',
+    data: {
+        labels: years,
+        datasets: [
+            { label: "Immigrants vs Refugee", data: immigrants, backgroundColor: "#0D47A1" }
+        ]
+    }
+});
+</script>
+
+{% endblock %}
+

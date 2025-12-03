@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<h2>Add New Immigration Record</h2>
+
+<form method="POST">
+    <label>Year</label>
+    <input type="number" name="year" required>
+
+    <label>Immigrants</label>
+    <input type="text" name="immigrants">
+
+    <label>Refugee Arrivals</label>
+    <input type="text" name="refugee_arrivals">
+
+    <label>Apprehensions</label>
+    <input type="text" name="apprehensions">
+
+    <label>Removals</label>
+    <input type="text" name="removals">
+
+    <label>Returns</label>
+    <input type="text" name="returns">
+
+    <button class="btn">Save</button>
+</form>
+
+{% endblock %}
+

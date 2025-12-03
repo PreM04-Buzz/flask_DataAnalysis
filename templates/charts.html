@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<h2 style="color:#0D47A1;">Immigration Trends</h2>
+
+<canvas id="lineChart" style="background:white; border-radius:10px;"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const years = {{ years|tojson }};
+const immigrants = {{ immigrants|tojson }};
+const refugees = {{ refugees|tojson }};
+const apprehensions = {{ apprehensions|tojson }};
+
+new Chart(document.getElementById("lineChart"), {
+    type: 'line',
+    data: {
+        labels: years,
+        datasets: [
+            { label: "Immigrants", data: immigrants, borderColor: "#0D47A1" },
+            { label: "Refugees", data: refugees, borderColor: "#43A047" },
+            { label: "Apprehensions", data: apprehensions, borderColor: "#D32F2F" }
+        ]
+    }
+});
+</script>
+
+{% endblock %}
+

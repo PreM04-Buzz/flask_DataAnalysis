@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<h2 style="color:#0D47A1;">Filter Records by Year</h2>
+
+<form method="POST">
+    <label>Start Year</label>
+    <input type="number" name="start" value="{{ start }}">
+
+    <label>End Year</label>
+    <input type="number" name="end" value="{{ end }}">
+
+    <button class="btn">Apply Filter</button>
+</form>
+
+{% if rows %}
+<table>
+    <tr>
+        <th>Year</th><th>Immigrants</th><th>Refugee Arrivals</th>
+        <th>Apprehensions</th><th>Removals</th><th>Returns</th>
+    </tr>
+
+    {% for row in rows %}
+    <tr>
+        <td>{{ row.year }}</td>
+        <td>{{ "{:,}".format(row.immigrants) }}</td>
+        <td>{{ "{:,}".format(row.refugee_arrivals) }}</td>
+        <td>{{ "{:,}".format(row.apprehensions) }}</td>
+        <td>{{ "{:,}".format(row.removals) }}</td>
+        <td>{{ "{:,}".format(row.returns) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+

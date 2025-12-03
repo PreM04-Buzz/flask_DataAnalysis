@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+<h2>Edit Immigration Record ({{ row.year }})</h2>
+
+<form method="POST">
+
+    <label>Immigrants</label>
+    <input type="text" name="immigrants" value="{{ row.immigrants }}">
+
+    <label>Refugee Arrivals</label>
+    <input type="text" name="refugee_arrivals" value="{{ row.refugee_arrivals }}">
+
+    <label>Apprehensions</label>
+    <input type="text" name="apprehensions" value="{{ row.apprehensions }}">
+
+    <label>Removals</label>
+    <input type="text" name="removals" value="{{ row.removals }}">
+
+    <label>Returns</label>
+    <input type="text" name="returns" value="{{ row.returns }}">
+
+    <button class="btn">Update</button>
+
+</form>
+
+{% endblock %}
+

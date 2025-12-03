@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/add" class="btn">+ Add New Record</a>
+<a href="/charts" class="chart-btn">📊 Single Chart</a>
+<a href="/dashboard" class="chart-btn">📈 Dashboard</a>
+<a href="/filter" class="chart-btn">🔎 Filter by Year</a>
+
+<div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search...">
+</div>
+
+<table id="mainTable" data-sort="asc">
+    <thead>
+    <tr>
+        <th onclick="sortTable(0)">Year</th>
+        <th onclick="sortTable(1)">Immigrants</th>
+        <th onclick="sortTable(2)">Refugee Arrivals</th>
+        <th onclick="sortTable(3)">Apprehensions</th>
+        <th onclick="sortTable(4)">Removals</th>
+        <th onclick="sortTable(5)">Returns</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td>{{ row.year }}</td>
+        <td>{{ "{:,}".format(row.immigrants) }}</td>
+        <td>{{ "{:,}".format(row.refugee_arrivals) }}</td>
+        <td>{{ "{:,}".format(row.apprehensions) }}</td>
+        <td>{{ "{:,}".format(row.removals) }}</td>
+        <td>{{ "{:,}".format(row.returns) }}</td>
+        <td>
+            <a href="/edit/{{ row.year }}" class="edit-btn">Edit</a>
+            <a href="/delete/{{ row.year }}" class="delete-btn">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<script src="/static/table.js"></script>
+
+{% endblock %}
+
